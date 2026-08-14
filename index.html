@@ -86,7 +86,7 @@
     backdrop-filter:blur(10px);
     border-bottom:1px solid var(--line);
   }
-  .nav-row{display:flex;align-items:center;justify-content:space-between;padding:12px 0;gap:12px;}
+  .nav-row{display:flex;align-items:center;justify-content:space-between;padding-top:12px;padding-bottom:12px;gap:12px;}
   .logo{display:flex;align-items:center;gap:10px;flex:none;min-width:0;}
   .logo-img{height:42px;width:auto;display:block;flex:none;}
   nav.links{display:flex;gap:26px;align-items:center;flex:1;justify-content:center;}
@@ -116,14 +116,14 @@
       linear-gradient(95deg, rgba(10,10,10,.88) 0%, rgba(10,10,10,.6) 38%, rgba(10,10,10,.22) 62%, rgba(10,10,10,.6) 100%),
       linear-gradient(0deg, rgba(10,10,10,.98) 0%, rgba(10,10,10,.55) 30%, rgba(10,10,10,.05) 58%);
   }
-  .hero-content{position:relative;z-index:2;padding:132px 0 6px;color:#fff;max-width:860px;}
+  .hero-content{position:relative;z-index:2;padding-top:132px;padding-bottom:6px;color:#fff;max-width:860px;}
   .hero-content .badge-tag{color:rgba(255,255,255,.92);}
   .hero h1{font-size:clamp(2.6rem,5.7vw,4.9rem);line-height:1.03;margin:20px 0 22px;font-weight:600;color:#fff;letter-spacing:-.015em;}
   .hero h1 em{font-style:italic;color:var(--saffron);}
   .hero p.lede{font-size:clamp(15px,1.5vw,17.5px);line-height:1.55;color:rgba(255,255,255,.85);max-width:500px;margin:0 0 28px;}
   .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;}
   .hero-bar{position:relative;z-index:2;display:flex;justify-content:space-between;align-items:flex-end;gap:20px;
-    flex-wrap:wrap;padding:32px 0 34px;border-top:1px solid rgba(255,255,255,.14);margin-top:28px;}
+    flex-wrap:wrap;padding-top:32px;padding-bottom:34px;border-top:1px solid rgba(255,255,255,.14);margin-top:28px;}
   .hero-stats{display:flex;gap:44px;flex-wrap:wrap;}
   .hero-stats div b{display:block;font-size:clamp(24px,3vw,34px);font-family:'Fraunces',serif;color:#fff;line-height:1;}
   .hero-stats div span{font-size:11px;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:.06em;}
@@ -352,7 +352,7 @@
     .hero{min-height:min(94vh,660px);}
     .hero-content{padding-top:100px;max-width:100%;}
     .hero-ctas .btn{flex:1;justify-content:center;}
-    .hero-bar{padding:32px 0 28px;margin-top:22px;}
+    .hero-bar{padding-top:32px;padding-bottom:28px;margin-top:22px;}
     .hero-stats{gap:26px;}
   }
 </style>
