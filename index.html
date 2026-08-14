@@ -6,6 +6,7 @@
 <title>IBPG Abu Dhabi — Concept Preview</title>
 <meta name="description" content="Concept preview: IBPG Abu Dhabi digital platform redesign by The Big Red" />
 <link rel="manifest" href="manifest.json" />
+<link rel="icon" type="image/png" href="icons/icon-192.png" />
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
 <meta name="theme-color" content="#0F2F26" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,19 +14,22 @@
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink:#1A1D1B;
-    --ink-soft:#5B655E;
-    --paper:#FBF8F2;
-    --paper-alt:#F1EAE0;
-    --forest:#0F2F26;
-    --forest-2:#173F32;
-    --saffron:#D98A3D;
-    --saffron-soft:#F3D9B6;
-    --thread-green:#2F7A5A;
-    --line:#E5DFD2;
+    /* palette sampled directly from the real IBPG falcon-feather mark */
+    --ink:#141414;
+    --ink-soft:#66655F;
+    --paper:#FBFAF7;
+    --paper-alt:#F1EEE7;
+    --forest:#141414;
+    --forest-2:#272725;
+    --saffron:#F47D20;
+    --saffron-soft:#FBDDB9;
+    --thread-green:#00954C;
+    --thread-green-deep:#0B7A40;
+    --red:#E31E27;
+    --line:#E6E1D6;
     --radius:16px;
-    --shadow:0 8px 30px rgba(15,47,38,0.08);
-    --shadow-lg:0 20px 60px rgba(15,47,38,0.16);
+    --shadow:0 8px 30px rgba(20,20,20,0.08);
+    --shadow-lg:0 20px 55px rgba(20,20,20,0.18);
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
@@ -46,9 +50,9 @@
     color:var(--forest);background:var(--saffron-soft);
     padding:6px 12px;border-radius:100px;
   }
-  .thread{height:3px;width:56px;border-radius:2px;
-    background:linear-gradient(90deg,var(--saffron) 0 33%, var(--paper) 33% 66%, var(--thread-green) 66% 100%);
-    opacity:.9;
+  .thread{height:3px;width:64px;border-radius:2px;
+    background:linear-gradient(90deg,var(--thread-green) 0 25%, var(--red) 25% 50%, #fff 50% 62%, var(--saffron) 62% 82%, var(--ink) 82% 100%);
+    opacity:.95;
   }
 
   /* ---- concept banner (not part of the site itself) ---- */
@@ -67,13 +71,8 @@
     border-bottom:1px solid var(--line);
   }
   .nav-row{display:flex;align-items:center;justify-content:space-between;padding:14px 0;}
-  .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:19px;color:var(--forest);}
-  .logo .mark{
-    width:36px;height:36px;border-radius:10px;background:var(--forest);
-    display:flex;align-items:center;justify-content:center;color:var(--saffron-soft);
-    font-family:'Fraunces',serif;font-weight:600;font-size:15px;
-  }
-  .logo small{display:block;font-family:'Manrope';font-weight:600;font-size:10px;letter-spacing:.06em;color:var(--ink-soft);text-transform:uppercase;}
+  .logo{display:flex;align-items:center;gap:10px;}
+  .logo-img{height:46px;width:auto;display:block;}
   nav.links{display:flex;gap:28px;align-items:center;}
   nav.links a{font-size:14.5px;font-weight:600;color:var(--ink-soft);transition:color .15s;}
   nav.links a:hover{color:var(--forest);}
@@ -95,9 +94,9 @@
   .hero-bg{
     position:absolute;inset:0;z-index:0;
     background:
-      radial-gradient(1100px 500px at 85% -10%, rgba(217,138,61,.18), transparent 60%),
-      radial-gradient(900px 500px at 5% 110%, rgba(47,122,90,.16), transparent 60%),
-      linear-gradient(180deg,#FBF8F2,#F1EAE0);
+      radial-gradient(1100px 500px at 85% -10%, rgba(244,125,32,.16), transparent 60%),
+      radial-gradient(900px 500px at 5% 110%, rgba(0,149,76,.14), transparent 60%),
+      linear-gradient(180deg,#FBFAF7,#F1EEE7);
     transition:opacity 1.2s ease;
   }
   .hero-inner{position:relative;z-index:1;display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center;}
@@ -109,15 +108,19 @@
   .hero-stats div b{display:block;font-size:24px;font-family:'Fraunces',serif;color:var(--forest);}
   .hero-stats div span{font-size:12.5px;color:var(--ink-soft);}
   .hero-card{
-    background:var(--forest);border-radius:24px;padding:28px;color:#F4EEE2;
+    background:var(--forest);border-radius:24px;padding:0;color:#F4EEE2;
     box-shadow:var(--shadow-lg);position:relative;overflow:hidden;
   }
-  .hero-card:before{content:"";position:absolute;inset:0;
-    background:radial-gradient(400px 220px at 100% 0%, rgba(217,138,61,.35), transparent 60%);}
-  .hero-card .rot-caption{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--saffron-soft);font-weight:700;}
-  .hero-card h3{margin:10px 0 10px;font-size:22px;font-weight:600;}
-  .hero-card p{font-size:14px;color:#D8D2C4;line-height:1.55;margin:0 0 18px;}
-  .rot-dots{display:flex;gap:6px;}
+  .hero-card .photo{width:100%;height:220px;object-fit:cover;display:block;transition:opacity .3s ease;}
+  .hero-card .photo-credit{position:absolute;top:14px;right:16px;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;
+    background:rgba(20,20,20,.55);color:#F4EEE2;padding:5px 10px;border-radius:100px;backdrop-filter:blur(4px);}
+  .hero-card .card-body{padding:24px 28px 28px;position:relative;}
+  .hero-card .card-body:before{content:"";position:absolute;inset:0;
+    background:radial-gradient(400px 180px at 100% 0%, rgba(244,125,32,.28), transparent 60%);pointer-events:none;}
+  .hero-card .rot-caption{position:relative;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--saffron-soft);font-weight:700;}
+  .hero-card h3{position:relative;margin:10px 0 10px;font-size:21px;font-weight:600;}
+  .hero-card p{position:relative;font-size:14px;color:#D8D2C4;line-height:1.55;margin:0 0 18px;}
+  .rot-dots{position:relative;display:flex;gap:6px;}
   .rot-dots span{width:20px;height:4px;border-radius:2px;background:rgba(244,238,226,.25);transition:background .3s;}
   .rot-dots span.active{background:var(--saffron);}
 
@@ -156,7 +159,7 @@
     background:linear-gradient(180deg,#fff,var(--paper-alt) 220%);
     border:1px solid var(--line);border-radius:var(--radius);padding:26px;display:flex;gap:18px;
   }
-  .avatar{width:64px;height:64px;border-radius:50%;background:var(--forest);flex:none;
+  .avatar{width:64px;height:64px;border-radius:50%;background:var(--forest);flex:none;object-fit:cover;
     display:flex;align-items:center;justify-content:center;color:var(--saffron-soft);font-family:'Fraunces';font-weight:600;font-size:20px;}
   .lead-card h4{margin:0 0 4px;font-size:16px;color:var(--forest);}
   .lead-card .role{font-size:12px;color:var(--saffron);font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px;}
@@ -229,6 +232,13 @@
     padding:14px 22px;border:1px solid var(--line);border-radius:12px;font-weight:700;font-size:13px;color:var(--ink-soft);
     background:#fff;
   }
+  .logo-chip-img{
+    padding:16px 20px;border:1px solid var(--line);border-radius:12px;background:#fff;
+    display:flex;align-items:center;justify-content:center;height:64px;width:150px;
+    transition:box-shadow .15s, transform .15s;
+  }
+  .logo-chip-img:hover{box-shadow:var(--shadow);transform:translateY(-2px);}
+  .logo-chip-img img{max-height:34px;max-width:120px;width:auto;object-fit:contain;}
   .partner-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
   .partner-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px;text-align:center;}
   .partner-card .ico{width:52px;height:52px;border-radius:50%;background:var(--paper-alt);display:flex;align-items:center;justify-content:center;margin:0 auto 14px;font-size:20px;}
@@ -298,8 +308,7 @@
 <header class="site">
   <div class="wrap nav-row">
     <a href="#top" class="logo">
-      <span class="mark">IB</span>
-      <span>IBPG<small>Abu Dhabi</small></span>
+      <img src="assets/logo.png" alt="IBPG — Indian Business &amp; Professional Group" class="logo-img" />
     </a>
     <nav class="links">
       <a href="#about">About</a>
@@ -349,10 +358,14 @@
         </div>
       </div>
       <div class="hero-card">
-        <div class="rot-caption" id="rotCaption">Chairman's Message</div>
-        <h3 id="rotTitle">"Taking IBPG to greater heights."</h3>
-        <p id="rotText">I wish to place on record my sincere thanks to all members of IBPG for the faith reposed in me. I assure to do my best and work along with you to take IBPG to greater heights.</p>
-        <div class="rot-dots" id="rotDots"></div>
+        <img src="assets/hero/slide-board-members.jpg" alt="IBPG leadership and members" class="photo" id="rotPhoto" />
+        <span class="photo-credit">From IBPG events</span>
+        <div class="card-body">
+          <div class="rot-caption" id="rotCaption">Chairman's Message</div>
+          <h3 id="rotTitle">"Taking IBPG to greater heights."</h3>
+          <p id="rotText">I wish to place on record my sincere thanks to all members of IBPG for the faith reposed in me. I assure to do my best and work along with you to take IBPG to greater heights.</p>
+          <div class="rot-dots" id="rotDots"></div>
+        </div>
       </div>
     </div>
   </section>
@@ -394,18 +407,18 @@
 
       <div class="lead-grid" style="margin-top:24px;">
         <div class="lead-card">
-          <div class="avatar">CH</div>
+          <img class="avatar" src="assets/hero/Yousuff-Ali.jpg" alt="Yousuff Ali, Chairman" />
           <div>
             <div class="role">Chairman's Message</div>
-            <h4>A message to our members</h4>
+            <h4>Yousuff Ali</h4>
             <p>"I am very happy to address you all as the Chairman of IBPG. I wish to place on record my sincere thanks to all members for the faith reposed in me." <a href="#" class="link-more">Read more →</a></p>
           </div>
         </div>
         <div class="lead-card">
-          <div class="avatar">VC</div>
+          <img class="avatar" src="assets/hero/Sharad-Bhandari.jpg" alt="Sharad Bhandari, Vice Chairman" />
           <div>
             <div class="role">Vice Chairman's Message</div>
-            <h4>Serving alongside our Chairman</h4>
+            <h4>Sharad Bhandari</h4>
             <p>"I whole heartedly thank you for trusting me to serve IBPG and its members as Vice Chairman, alongside our honorable Chairman." <a href="#" class="link-more">Read more →</a></p>
           </div>
         </div>
@@ -560,13 +573,16 @@
         </div>
       </div>
       <div class="logo-strip" style="margin-bottom:56px;">
-        <div class="logo-chip">Apex Trading</div>
-        <div class="logo-chip">Coral Logistics</div>
-        <div class="logo-chip">Dune Capital</div>
-        <div class="logo-chip">Meridian Law</div>
-        <div class="logo-chip">Zenith Group</div>
-        <div class="logo-chip">Horizon Realty</div>
-        <div class="logo-chip">Falcon Freight</div>
+        <div class="logo-chip-img"><img src="assets/sponsors/lulu-group.jpg" alt="LuLu Group" /></div>
+        <div class="logo-chip-img"><img src="assets/sponsors/lulu-exchange.jpg" alt="LuLu Exchange" /></div>
+        <div class="logo-chip-img"><img src="assets/sponsors/ardent.jpg" alt="Ardent Advisory &amp; Accounting" /></div>
+        <div class="logo-chip-img"><img src="assets/sponsors/bakertilly.jpg" alt="Baker Tilly" /></div>
+        <div class="logo-chip-img"><img src="assets/sponsors/medeor.jpg" alt="Medeor Hospital" /></div>
+        <div class="logo-chip-img"><img src="assets/sponsors/mg.jpg" alt="MG Motor" /></div>
+        <div class="logo-chip-img"><img src="assets/sponsors/aj-steel.jpg" alt="AJ Steel" /></div>
+        <div class="logo-chip-img"><img src="assets/sponsors/bloom.jpg" alt="Bloom" /></div>
+        <div class="logo-chip-img"><img src="assets/sponsors/bms.jpg" alt="BMS" /></div>
+        <div class="logo-chip-img"><img src="assets/sponsors/india-palace.jpg" alt="India Palace" /></div>
       </div>
 
       <div class="section-head">
@@ -642,15 +658,16 @@
 
   // hero rotating content (mirrors "hero banner with rotating images" spec)
   const rotations = [
-    { cap: "Chairman's Message", title: '"Taking IBPG to greater heights."', text: "I wish to place on record my sincere thanks to all members of IBPG for the faith reposed in me. I assure to do my best and work along with you to take IBPG to greater heights." },
-    { cap: "Upcoming Initiative", title: "IBPG Connect — Business Mixer", text: "Join corporate members and entrepreneurs for an evening of networking at Yas Marina, August 18th." },
-    { cap: "Member Spotlight", title: "37 Registered Business Groups", text: "IBPG is one of 37 business groups in Abu Dhabi registered with the Abu Dhabi Chamber of Commerce — since 1991." }
+    { cap: "Chairman's Message", title: '"Taking IBPG to greater heights."', text: "I wish to place on record my sincere thanks to all members of IBPG for the faith reposed in me. I assure to do my best and work along with you to take IBPG to greater heights.", photo: 'assets/hero/slide-board-members.jpg' },
+    { cap: "IBPG Social", title: 'Holi Celebrations 2026', text: "Community and cultural gatherings that bring IBPG members together beyond the boardroom.", photo: 'assets/hero/slide-new-2.jpg' },
+    { cap: "Member Spotlight", title: "37 Registered Business Groups", text: "IBPG is one of 37 business groups in Abu Dhabi registered with the Abu Dhabi Chamber of Commerce — since 1991.", photo: 'assets/hero/slide-new-1.jpg' }
   ];
   let rotIdx = 0;
   const rotCaption = document.getElementById('rotCaption');
   const rotTitle = document.getElementById('rotTitle');
   const rotText = document.getElementById('rotText');
   const rotDots = document.getElementById('rotDots');
+  const rotPhoto = document.getElementById('rotPhoto');
   rotations.forEach((_, i) => {
     const d = document.createElement('span');
     if (i === 0) d.classList.add('active');
@@ -661,6 +678,8 @@
     rotCaption.textContent = r.cap;
     rotTitle.textContent = r.title;
     rotText.textContent = r.text;
+    rotPhoto.style.opacity = 0;
+    setTimeout(() => { rotPhoto.src = r.photo; rotPhoto.style.opacity = 1; }, 250);
     [...rotDots.children].forEach((d, idx) => d.classList.toggle('active', idx === i));
   }
   setInterval(() => {
