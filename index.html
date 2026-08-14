@@ -45,11 +45,27 @@
   img{max-width:100%;display:block;}
   .wrap{max-width:1180px;margin:0 auto;padding:0 20px;}
   .badge-tag{
-    display:inline-flex;align-items:center;gap:8px;
-    font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
-    color:var(--forest);background:var(--saffron-soft);
-    padding:6px 12px;border-radius:100px;
+    display:inline-flex;align-items:center;gap:10px;
+    font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--ink-soft);
   }
+  .badge-tag:before{content:"";width:26px;height:2px;background:var(--saffron);flex:none;}
+
+  /* real SVG icon chips — replaces emoji throughout */
+  .icon-chip{width:40px;height:40px;border-radius:11px;background:var(--paper-alt);color:var(--forest);
+    display:flex;align-items:center;justify-content:center;flex:none;}
+  .icon-chip svg{width:20px;height:20px;}
+  .icon-chip--dark{background:rgba(255,255,255,.14);color:#fff;}
+  .icon-inline{width:13px;height:13px;vertical-align:-2px;margin-right:3px;display:inline-block;color:var(--saffron);}
+
+  /* institutional credibility strip */
+  .trust-strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#fff;padding:22px 0;position:relative;z-index:1;}
+  .trust-inner{display:flex;align-items:center;gap:28px;flex-wrap:wrap;justify-content:center;}
+  .trust-label{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);flex:none;}
+  .trust-items{display:flex;gap:32px;flex-wrap:wrap;align-items:center;justify-content:center;}
+  .trust-item{display:flex;align-items:center;gap:10px;font-size:13.5px;font-weight:700;color:var(--forest);}
+  .trust-item .icon-chip{width:30px;height:30px;border-radius:9px;}
+  .trust-item .icon-chip svg{width:15px;height:15px;}
   .thread{height:3px;width:64px;border-radius:2px;
     background:linear-gradient(90deg,var(--thread-green) 0 25%, var(--red) 25% 50%, #fff 50% 62%, var(--saffron) 62% 82%, var(--ink) 82% 100%);
     opacity:.95;
@@ -88,7 +104,8 @@
   .btn-ghost{background:transparent;color:var(--forest);border-color:var(--line);}
   .btn-dark{background:var(--forest);color:#F4EEE2;}
   .btn-outline-light{background:rgba(255,255,255,.08);color:#fff;border-color:rgba(255,255,255,.45);backdrop-filter:blur(6px);}
-  .menu-toggle{display:none;background:none;border:none;font-size:24px;color:var(--forest);cursor:pointer;line-height:1;flex:none;}
+  .menu-toggle{display:none;background:none;border:none;color:var(--forest);cursor:pointer;line-height:1;flex:none;padding:4px;}
+  .menu-toggle svg{width:22px;height:22px;display:block;}
 
   /* ---- hero: full-bleed photo, like a chamber-of-commerce hero should be ---- */
   .hero{position:relative;min-height:min(88vh,760px);display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;}
@@ -99,7 +116,7 @@
       linear-gradient(0deg, rgba(14,14,14,.96) 0%, rgba(14,14,14,.5) 34%, rgba(14,14,14,.08) 62%);
   }
   .hero-content{position:relative;z-index:2;padding:150px 0 8px;color:#fff;max-width:800px;}
-  .hero-content .badge-tag{background:rgba(255,255,255,.14);color:#fff;}
+  .hero-content .badge-tag{color:rgba(255,255,255,.92);}
   .hero h1{font-size:clamp(2.5rem,5.6vw,4.6rem);line-height:1.02;margin:22px 0 22px;font-weight:600;color:#fff;letter-spacing:-.01em;}
   .hero h1 em{font-style:italic;color:var(--saffron);}
   .hero p.lede{font-size:clamp(15px,1.6vw,18px);line-height:1.6;color:rgba(255,255,255,.85);max-width:540px;margin:0 0 30px;}
@@ -119,7 +136,7 @@
   .rot-dots span.active{background:var(--saffron);}
 
   /* ---- quick access ---- */
-  .quick{margin-top:-40px;position:relative;z-index:3;}
+  .quick{margin-top:26px;position:relative;z-index:3;}
   .quick-grid{
     display:grid;grid-template-columns:repeat(5,1fr);gap:14px;
     background:#fff;border-radius:20px;padding:16px;box-shadow:var(--shadow-lg);
@@ -130,7 +147,8 @@
     padding:16px 8px;border-radius:14px;transition:background .15s;
   }
   .qa:hover{background:var(--paper-alt);}
-  .qa .ico{width:42px;height:42px;border-radius:12px;background:var(--paper-alt);display:flex;align-items:center;justify-content:center;font-size:18px;}
+  .qa .ico{width:42px;height:42px;border-radius:12px;background:var(--paper-alt);color:var(--forest);display:flex;align-items:center;justify-content:center;}
+  .qa .ico svg{width:20px;height:20px;}
   .qa span{font-size:13px;font-weight:700;color:var(--forest);}
 
   /* ---- section shared ---- */
@@ -184,7 +202,9 @@
     transition:box-shadow .15s, transform .15s;
   }
   .init-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-2px);}
-  .init-card .ico{font-size:20px;margin-bottom:10px;}
+  .init-card .ico{width:38px;height:38px;border-radius:10px;background:var(--paper-alt);color:var(--forest);
+    display:flex;align-items:center;justify-content:center;margin-bottom:14px;}
+  .init-card .ico svg{width:19px;height:19px;}
   .init-card h4{margin:0 0 6px;font-size:14.5px;color:var(--forest);}
   .init-card p{margin:0;font-size:12.5px;color:var(--ink-soft);line-height:1.5;}
 
@@ -199,6 +219,7 @@
   .svc-card h3{font-size:20px;margin:6px 0 10px;font-weight:600;}
   .svc-card p{font-size:13.5px;color:#D8D2C4;line-height:1.6;margin:0 0 18px;max-width:340px;}
   .svc-card .btn{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.25);}
+  .svc-card .icon-chip{margin-bottom:14px;}
 
   /* directory */
   .dir-wrap{background:#fff;border:1px solid var(--line);border-radius:20px;padding:30px;box-shadow:var(--shadow);}
@@ -215,8 +236,9 @@
   .dir-card .name-blur{font-weight:700;font-size:13.5px;margin-bottom:2px;}
   .dir-card .role-blur{font-size:11.5px;color:var(--ink-soft);}
   .dir-card .lock{
-    position:absolute;top:10px;right:10px;font-size:12px;color:var(--saffron);
+    position:absolute;top:10px;right:10px;color:var(--saffron);
   }
+  .dir-card .lock svg{width:15px;height:15px;display:block;}
   .dir-cta{display:flex;align-items:center;justify-content:space-between;margin-top:22px;padding-top:18px;border-top:1px dashed var(--line);flex-wrap:wrap;gap:12px;}
   .dir-cta p{margin:0;font-size:13px;color:var(--ink-soft);}
 
@@ -235,7 +257,8 @@
   .logo-chip-img img{max-height:34px;max-width:120px;width:auto;object-fit:contain;}
   .partner-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
   .partner-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px;text-align:center;}
-  .partner-card .ico{width:52px;height:52px;border-radius:50%;background:var(--paper-alt);display:flex;align-items:center;justify-content:center;margin:0 auto 14px;font-size:20px;}
+  .partner-card .ico{width:52px;height:52px;border-radius:50%;background:var(--paper-alt);color:var(--forest);display:flex;align-items:center;justify-content:center;margin:0 auto 14px;}
+  .partner-card .ico svg{width:22px;height:22px;}
   .partner-card h4{margin:0 0 6px;font-size:14.5px;color:var(--forest);}
   .partner-card p{margin:0;font-size:12px;color:var(--ink-soft);}
 
@@ -262,7 +285,8 @@
     box-shadow:0 12px 30px rgba(15,47,38,.35);cursor:pointer;border:none;font-family:inherit;font-weight:700;font-size:13.5px;
     animation:float 2.6s ease-in-out infinite;
   }
-  .install-fab .ico{width:26px;height:26px;border-radius:50%;background:var(--saffron);display:flex;align-items:center;justify-content:center;font-size:13px;}
+  .install-fab .ico{width:26px;height:26px;border-radius:50%;background:var(--saffron);color:#241503;display:flex;align-items:center;justify-content:center;}
+  .install-fab .ico svg{width:14px;height:14px;}
   @keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
 
   /* mobile menu */
@@ -271,12 +295,15 @@
     padding:24px;color:#F4EEE2;overflow-y:auto;
   }
   .mobile-menu.open{display:flex;flex-direction:column;}
-  .mobile-menu .close-x{font-size:26px;background:none;border:none;color:#F4EEE2;align-self:flex-end;cursor:pointer;}
+  .mobile-menu .close-x{background:none;border:none;color:#F4EEE2;align-self:flex-end;cursor:pointer;padding:4px;}
+  .mobile-menu .close-x svg{width:22px;height:22px;display:block;}
   .mobile-menu a{display:block;font-size:20px;font-weight:700;padding:14px 0;border-bottom:1px solid rgba(244,238,226,.12);}
   .mobile-menu .mm-ctas{margin-top:auto;padding-top:24px;display:flex;flex-direction:column;gap:12px;}
   .mobile-menu .mm-ctas .btn{width:100%;justify-content:center;padding:14px 20px;}
 
   @media (max-width:980px){
+    .trust-inner{flex-direction:column;gap:16px;}
+    .trust-items{gap:22px;}
     .quick-grid{grid-template-columns:repeat(3,1fr);}
     .vm-grid,.lead-grid,.svc-grid{grid-template-columns:1fr;}
     .init-grid{grid-template-columns:repeat(2,1fr);}
@@ -329,13 +356,13 @@
     <div class="cta-row">
       <a class="btn btn-dark" href="#membership">Member Login</a>
       <a class="btn btn-primary" href="#membership">Become a Member</a>
-      <button class="menu-toggle" id="menuToggle" aria-label="Menu">☰</button>
+      <button class="menu-toggle" id="menuToggle" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
     </div>
   </div>
 </header>
 
 <div class="mobile-menu" id="mobileMenu">
-  <button class="close-x" id="menuClose">✕</button>
+  <button class="close-x" id="menuClose"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
   <a href="#about">About</a>
   <a href="#initiatives">Initiatives</a>
   <a href="#events">Events</a>
@@ -379,13 +406,25 @@
     </div>
   </section>
 
+  <div class="trust-strip">
+    <div class="wrap trust-inner">
+      <span class="trust-label">Recognised &amp; Registered With</span>
+      <div class="trust-items">
+        <span class="trust-item"><span class="icon-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9 12 3l9 6"/><path d="M4 9h16"/><path d="M5 9v10M9 9v10M15 9v10M19 9v10"/><path d="M3 21h18"/></svg></span>Abu Dhabi Chamber of Commerce</span>
+        <span class="trust-item"><span class="icon-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V4"/><path d="M5 4h14l-3 4 3 4H5"/></svg></span>Embassy of India, UAE</span>
+        <span class="trust-item"><span class="icon-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5 3.5 9 8 11 4.5-2 8-6 8-11V5z"/></svg></span>Abu Dhabi Global Market</span>
+        <span class="trust-item"><span class="icon-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polygon points="16,8 13,13 8,16 11,11" fill="currentColor" stroke="none"/></svg></span>37 Registered Business Groups</span>
+      </div>
+    </div>
+  </div>
+
   <div class="wrap quick">
     <div class="quick-grid">
-      <a class="qa" href="#about"><span class="ico">🏛️</span><span>About</span></a>
-      <a class="qa" href="#events"><span class="ico">📅</span><span>Events</span></a>
-      <a class="qa" href="#membership"><span class="ico">🤝</span><span>Membership</span></a>
-      <a class="qa" href="#initiatives"><span class="ico">🌱</span><span>Initiatives</span></a>
-      <a class="qa" href="#partners"><span class="ico">🏢</span><span>Partners</span></a>
+      <a class="qa" href="#about"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9 12 3l9 6"/><path d="M4 9h16"/><path d="M5 9v10M9 9v10M15 9v10M19 9v10"/><path d="M3 21h18"/></svg></span><span>About</span></a>
+      <a class="qa" href="#events"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18"/><path d="M8 3v4M16 3v4"/></svg></span><span>Events</span></a>
+      <a class="qa" href="#membership"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><span>Membership</span></a>
+      <a class="qa" href="#initiatives"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polygon points="16,8 13,13 8,16 11,11" fill="currentColor" stroke="none"/></svg></span><span>Initiatives</span></a>
+      <a class="qa" href="#partners"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 15l6-6"/><path d="M11 6l1-1a4 4 0 0 1 6 6l-1 1"/><path d="M13 18l-1 1a4 4 0 0 1-6-6l1-1"/></svg></span><span>Partners</span></a>
     </div>
   </div>
 
@@ -454,7 +493,7 @@
             <div class="event-tag">IBPG Connect</div>
             <h4>Abu Dhabi Business Mixer</h4>
             <p>Evening networking with corporate members and new entrepreneurs.</p>
-            <div class="event-meta"><span>📍 Yas Marina</span><span>6:30 PM</span></div>
+            <div class="event-meta"><span><svg class="icon-inline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.5 7-12a7 7 0 1 0-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.3"/></svg>Yas Marina</span><span>6:30 PM</span></div>
           </div>
         </div>
         <div class="event-card">
@@ -465,7 +504,7 @@
             <div class="event-tag">IBPG Women</div>
             <h4>Women in Leadership Forum</h4>
             <p>Panel discussion with senior women executives across Abu Dhabi.</p>
-            <div class="event-meta"><span>📍 IBPG Hub</span><span>4:00 PM</span></div>
+            <div class="event-meta"><span><svg class="icon-inline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.5 7-12a7 7 0 1 0-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.3"/></svg>IBPG Hub</span><span>4:00 PM</span></div>
           </div>
         </div>
         <div class="event-card">
@@ -476,7 +515,7 @@
             <div class="event-tag">IBPG Learn</div>
             <h4>Trade &amp; Tax Masterclass</h4>
             <p>Practical session on cross-border trade compliance for SMEs.</p>
-            <div class="event-meta"><span>📍 Virtual</span><span>11:00 AM</span></div>
+            <div class="event-meta"><span><svg class="icon-inline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.5 7-12a7 7 0 1 0-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.3"/></svg>Virtual</span><span>11:00 AM</span></div>
           </div>
         </div>
         <div class="event-card">
@@ -484,10 +523,10 @@
             <div class="event-date-chip"><b>27</b><span>Sep</span></div>
           </div>
           <div class="event-body">
-            <div class="event-tag">IBPG Young Volunteers</div>
-            <h4>Careers &amp; Mentoring Day</h4>
-            <p>Students meet member companies for mentorship and internships.</p>
-            <div class="event-meta"><span>📍 IBPG Hub</span><span>10:00 AM</span></div>
+            <div class="event-tag">IBPG Young Visionaries</div>
+            <h4>Next-Gen Leaders Mixer</h4>
+            <p>Under-35 members connect with the board to shape what IBPG does next.</p>
+            <div class="event-meta"><span><svg class="icon-inline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.5 7-12a7 7 0 1 0-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.3"/></svg>IBPG Hub</span><span>10:00 AM</span></div>
           </div>
         </div>
       </div>
@@ -504,15 +543,15 @@
         </div>
       </div>
       <div class="init-grid">
-        <div class="init-card"><div class="ico">📚</div><h4>IBPG Learn</h4><p>Educational sessions and business knowledge sharing.</p></div>
-        <div class="init-card"><div class="ico">🎉</div><h4>IBPG Social</h4><p>Community and cultural gatherings across the year.</p></div>
-        <div class="init-card"><div class="ico">🔗</div><h4>IBPG Connect</h4><p>Business networking forums and member introductions.</p></div>
-        <div class="init-card"><div class="ico">👩‍💼</div><h4>IBPG Women</h4><p>Women leaders and professional development.</p></div>
-        <div class="init-card"><div class="ico">🎓</div><h4>IBPG Young Volunteers</h4><p>Youth engagement and student programs.</p></div>
-        <div class="init-card"><div class="ico">🛍️</div><h4>Swadeshi Merchant Scheme</h4><p>Support for Indian-origin SMEs and merchants.</p></div>
-        <div class="init-card"><div class="ico">🎙️</div><h4>IBPG Pod</h4><p>IBPG's official podcast series.</p></div>
-        <div class="init-card"><div class="ico">⭐</div><h4>IBPG Talent</h4><p>Spotlight on skills, careers and member achievements.</p></div>
-        <div class="init-card"><div class="ico">🏃</div><h4>IBPG Move</h4><p>Sports, wellness and fitness initiatives.</p></div>
+        <div class="init-card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 5c2-1 5-1 7 0v14c-2-1-5-1-7 0z"/><path d="M22 5c-2-1-5-1-7 0v14c2-1 5-1 7 0z"/></svg></div><h4>IBPG Learn</h4><p>Educational sessions and business knowledge sharing.</p></div>
+        <div class="init-card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><h4>IBPG Social</h4><p>Community and cultural gatherings across the year.</p></div>
+        <div class="init-card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="6" r="2.2"/><circle cx="19" cy="6" r="2.2"/><circle cx="12" cy="18" r="2.2"/><path d="M6.8 7.3 10.3 16.5M17.2 7.3 13.7 16.5M7.2 6h9.6"/></svg></div><h4>IBPG Connect</h4><p>Business networking forums and member introductions.</p></div>
+        <div class="init-card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2.2"/><path d="M12 3.2c1.7 0 3 1.5 3 3.3s-1.3 3.3-3 3.3-3-1.5-3-3.3 1.3-3.3 3-3.3zM12 14.2c1.7 0 3 1.5 3 3.3s-1.3 3.3-3 3.3-3-1.5-3-3.3 1.3-3.3 3-3.3zM20.8 12c0 1.7-1.5 3-3.3 3s-3.3-1.3-3.3-3 1.5-3 3.3-3 3.3 1.3 3.3 3zM9.8 12c0 1.7-1.5 3-3.3 3s-3.3-1.3-3.3-3 1.5-3 3.3-3 3.3 1.3 3.3 3z"/></svg></div><h4>IBPG Women</h4><p>Women leaders and professional development.</p></div>
+        <div class="init-card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c3 3 5 6.3 5 9.3a5 5 0 0 1-10 0C7 8.3 9 5 12 2z"/><path d="M12 21v-3"/></svg></div><h4>IBPG Young Visionaries</h4><p>Under-35 members carrying the baton forward — IBPG's next generation of leadership.</p></div>
+        <div class="init-card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l1-5h16l1 5"/><path d="M3 9a2 2 0 0 0 4 0 2 2 0 0 0 4 0 2 2 0 0 0 4 0 2 2 0 0 0 4 0"/><path d="M5 9v10h14V9"/><path d="M10 19v-6h4v6"/></svg></div><h4>Swadeshi Merchant Scheme</h4><p>Support for Indian-origin SMEs and merchants.</p></div>
+        <div class="init-card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0"/><path d="M12 18v4M8 22h8"/></svg></div><h4>IBPG Pod</h4><p>IBPG's official podcast series.</p></div>
+        <div class="init-card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polygon points="12,2 15,9 22,9.5 16.5,14 18.5,21 12,17 5.5,21 7.5,14 2,9.5 9,9"/></svg></div><h4>IBPG Talent</h4><p>Spotlight on skills, careers and member achievements.</p></div>
+        <div class="init-card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h4l2-7 4 14 2-7h8"/></svg></div><h4>IBPG Move</h4><p>Sports, wellness and fitness initiatives.</p></div>
       </div>
     </div>
   </section>
@@ -529,14 +568,14 @@
       <div class="svc-grid">
         <div class="svc-card">
           <span class="new">New</span>
-          <div style="font-size:22px;">💼</div>
+          <div class="icon-chip icon-chip--dark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M3 12h18"/></svg></div>
           <h3>Job Portal</h3>
           <p>Members post vacancies, jobseekers upload CVs, filter by industry / type / experience — with admin approval before anything goes live.</p>
           <a href="#" class="btn">Explore Job Portal →</a>
         </div>
         <div class="svc-card alt">
           <span class="new">New</span>
-          <div style="font-size:22px;">🏷️</div>
+          <div class="icon-chip icon-chip--dark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2h7a2 2 0 0 1 2 2v7L11 21 2 12z"/><circle cx="15.5" cy="8.5" r="1.3" fill="currentColor" stroke="none"/></svg></div>
           <h3>Member Ads &amp; Offers</h3>
           <p>Members promote offers, discounts and launches — with validity dates, category tags, and top offers surfaced on the homepage carousel.</p>
           <a href="#" class="btn">See Member Offers →</a>
@@ -560,10 +599,10 @@
           <button class="btn btn-dark">Search</button>
         </div>
         <div class="dir-grid">
-          <div class="dir-card"><span class="lock">🔒</span><div class="avatar">•</div><div class="name-blur">Rajeev Menon</div><div class="role-blur">Managing Director, Apex Trading</div></div>
-          <div class="dir-card"><span class="lock">🔒</span><div class="avatar">•</div><div class="name-blur">Anita Shah</div><div class="role-blur">Founder, Coral Logistics</div></div>
-          <div class="dir-card"><span class="lock">🔒</span><div class="avatar">•</div><div class="name-blur">Vikram Nair</div><div class="role-blur">CEO, Dune Capital</div></div>
-          <div class="dir-card"><span class="lock">🔒</span><div class="avatar">•</div><div class="name-blur">Priya Suresh</div><div class="role-blur">Partner, Meridian Law</div></div>
+          <div class="dir-card"><span class="lock"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></span><div class="avatar">•</div><div class="name-blur">Rajeev Menon</div><div class="role-blur">Managing Director, Apex Trading</div></div>
+          <div class="dir-card"><span class="lock"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></span><div class="avatar">•</div><div class="name-blur">Anita Shah</div><div class="role-blur">Founder, Coral Logistics</div></div>
+          <div class="dir-card"><span class="lock"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></span><div class="avatar">•</div><div class="name-blur">Vikram Nair</div><div class="role-blur">CEO, Dune Capital</div></div>
+          <div class="dir-card"><span class="lock"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></span><div class="avatar">•</div><div class="name-blur">Priya Suresh</div><div class="role-blur">Partner, Meridian Law</div></div>
         </div>
         <div class="dir-cta">
           <p>Full directory — name, designation, company, LinkedIn — unlocks for verified members only.</p>
@@ -601,9 +640,9 @@
         </div>
       </div>
       <div class="partner-grid">
-        <div class="partner-card"><div class="ico">🏛️</div><h4>Abu Dhabi Chamber</h4><p>One of 37 registered business groups.</p></div>
-        <div class="partner-card"><div class="ico">🇮🇳</div><h4>Indian Embassy, UAE</h4><p>Diplomatic and consular partnership.</p></div>
-        <div class="partner-card"><div class="ico">📜</div><h4>ADGM</h4><p>Regulatory and institutional collaboration.</p></div>
+        <div class="partner-card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9 12 3l9 6"/><path d="M4 9h16"/><path d="M5 9v10M9 9v10M15 9v10M19 9v10"/><path d="M3 21h18"/></svg></div><h4>Abu Dhabi Chamber</h4><p>One of 37 registered business groups.</p></div>
+        <div class="partner-card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V4"/><path d="M5 4h14l-3 4 3 4H5"/></svg></div><h4>Indian Embassy, UAE</h4><p>Diplomatic and consular partnership.</p></div>
+        <div class="partner-card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5 3.5 9 8 11 4.5-2 8-6 8-11V5z"/></svg></div><h4>ADGM</h4><p>Regulatory and institutional collaboration.</p></div>
       </div>
     </div>
   </section>
@@ -653,7 +692,7 @@
 </footer>
 
 <button class="install-fab" id="installFab">
-  <span class="ico">⬇</span> Install as App
+  <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M4 21h16"/></svg></span> Install as App
 </button>
 
 <script>
