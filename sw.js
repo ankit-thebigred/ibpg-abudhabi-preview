@@ -19,7 +19,7 @@ self.addEventListener("fetch", (e) => {
   const isNavigation = e.request.mode === "navigate" || e.request.destination === "document";
   if (isNavigation) {
     e.respondWith(
-      fetch(e.request)
+      fetch(e.request, { cache: "no-store" })
         .then((res) => {
           const copy = res.clone();
           caches.open(CACHE).then((c) => c.put(e.request, copy));
